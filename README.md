@@ -5,7 +5,7 @@ API interfacing website that allows users to search for a specific country and g
 
 ---
 
-## How to navigate
+## How to Navigate
 When you load into the site, you are met with a search box that is automatically populated with Austria, simply because I like "The Sound of Music." You can enter any country into the search bar, press the search button, and the entire site will be updated to display your choice, making the required API calls on the backend. You can navigate the map using the provided buttons, as well as the scroll wheel on your mouse or pinch to zoom on a touch screen.
 
 ---
