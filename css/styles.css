@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: honeydew;
+}
+
+#map {
+    width: 800px;
+    height: 500px;
+    margin: 50px auto 0;
+}
+
+.widgets {
+    width: 80%;
+    margin: 20px auto 0;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 100px;
+    margin: 10px auto 20px;
+    background-color: sienna;
+    border: maroon 5px solid;
+    border-radius: 20px;
+}
+
+#wrapper {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: wheat;
+    border-radius: 20px;
+    border: 5px solid tan;
+}
+
+#wrapper div {
+    margin: 0 20px;
+    padding: 10px;
+}
+
+#wrapper p {
+    font-size: 1.2rem;
+}
+
+#SearchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 50%;
+    background-color: lightgreen;
+    border: seagreen 5px solid;
+    border-radius: 20px;
+}
+
+#SearchBar > div {
+    text-align: center;
+}
+
+#searchBlock {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+#searchBlock > * {
+    margin: 0 3px 0;
+}
+
+#CurrentCountry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 70%;
+}
+
+#CurrentCountry > div {
+    text-align: center;
+    margin: 0 2%;
+}
+
+#flag {
+    flex: 0 1 auto;
+    width: 20%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    background-color: slategray;
+    height: 80px;
+}
+
+#mapControl {
+    grid-area: title;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#inputWrapper {
+    width: 80%; 
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 1fr;
+    grid-template-areas: "title title"
+                        "left right";
+    background-color: whitesmoke;
+    border-radius: 20px;
+    border: 5px solid gainsboro;
+}
+
+#leftWrapper {
+    grid-area: left;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#leftWrapper > * {
+    margin: 10px 0 10px;
+}
+
+#slideWrapper {
+    grid-area: right;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#slideWrapper > * {
+    margin: 10px 0 10px;
+}
+
+#buttonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px;
+    padding: 10px;
+}
+
+#buttonWrapper > * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#buttonWrapper > div {
+    max-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ThreeD, #mapStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#ThreeD > * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#mapStyle > * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    #map {
+        width: 600px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #map {
+        width: 80%;
+        height: 300px;
+    }
+    #inputWrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px 1fr 1fr;
+        grid-template-areas: "title"
+                            "right"
+                            "left";
+    }
+
+    #CurrentCountry {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 70%;
+    }
+    
+    #CurrentCountry > div {
+        text-align: center;
+        margin: 15px auto 0;
+    }
+    
+    #flag {
+        width: 80%;
+        margin: 20px auto 20px;
+    }
+
+    #slideWrapper {
+        width: 85%;
+    }
+
+    
+    #SearchBar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 80%;
+        background-color: lightgreen;
+        border: seagreen 5px solid;
+        border-radius: 20px;
+    }
+
+    #searchBlock {  
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: 15px;
+    }
+
+    #searchBlock > * {
+        width: 70%;
+        margin: 5px auto 5px;
+    }
+}

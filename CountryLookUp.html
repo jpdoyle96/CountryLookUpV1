@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+    <script src="js/GeoCountries.js"></script>
+    <script src="js/CountriesREST.js"></script>
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Mapping</title>
+    <script>
+        window.onload = async function () {
+            if (localStorage.getItem("Current") === null) {
+                currentObj = await getByGeneric("Austria");
+                localStorage.setItem("Current", JSON.stringify(currentObj));
+            }
+            await initializeToCurrent();
+        }
+
+        async function getGeoData() {
+            let url = 'data/countries.geojson';
+            let res = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            return res.json();
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Country Info Lookup</h1>
+    </header>
+    <div class="widgets" id="SearchBar">
+        <div>
+            <h3>Search for a new country</h3>
+        </div>
+        <div id="searchBlock">
+            <input id="searchterm" type="text" size="25" maxlength="25" autofocus value="Austria" />
+            <button type="button" id="search">Search country</button>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="CurrentCountry">
+            <div>
+                <h1 data-value="Austria">Austria</h1>
+            </div>
+            <div id="flag">
+                <img id="flagIMG" src="" alt="">
+            </div>
+        </div>
+        <div id="Info">
+            <p></p>
+        </div>
+    </div>
+    <div id="inputWrapper">
+        <h2 id="mapControl">Map Controls</h2>
+        <div id="leftWrapper">
+            <div id="buttonWrapper">
+                <h3>Transport </h3>
+                <div class="widgets">
+                    <input id="capital" type="button" value="Capital">
+                </div>
+                <div class="widgets">
+                    <input id="country" type="button" value="Country">
+                </div>
+            </div>
+            <div class="widgets" id="ThreeD">
+                <h3>3D Mode  </h3>
+                <label class="switch">
+                    <input id="switchBox" type="checkbox">
+                    <span id="switchSlide"></span>
+                </label>
+            </div>
+            <div class="widgets" id="mapStyle">
+                <h3>Map Style  </h3>
+                <select id="style">
+                    <option value="mapbox://styles/mapbox/streets-v11"
+                        data-value="mapbox://styles/jpdoyle96/ckw2bqvos0mv015ms3zjcba42">Streets</option>
+                    <option value="mapbox://styles/mapbox/outdoors-v11"
+                        data-value="mapbox://styles/jpdoyle96/ckw2c61w122e716pdglndqifk" selected>Outdoors</option>
+                    <option value="mapbox://styles/mapbox/light-v10"
+                        data-value="mapbox://styles/jpdoyle96/ckw2cd83u0zsc14pg4abv38xl">Light</option>
+                    <option value="mapbox://styles/mapbox/dark-v10"
+                        data-value="mapbox://styles/jpdoyle96/ckw2c93yu26su15pgibzgvdfc">Dark</option>
+                    <option value="mapbox://styles/mapbox/satellite-v9"
+                        data-value="mapbox://styles/jpdoyle96/ckw2fknke0qxo14ozvfvrrsre">Satellite</option>
+                </select>
+            </div>
+        </div>
+        <div id="slideWrapper">
+            <div class="widgets">
+                <h3>Pitch</h3>
+                <input type="range" min="0" max="70" value="0" class="slider" id="pitch">
+            </div>
+            <div class="widgets">
+                <h3>Bearing</h3>
+                <input type="range" min="-180" max="180" value="0" class="slider" id="bearing">
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <footer>
+        <p>Powered by REST Countries API<br>Author: Jack Doyle</p>
+    </footer>
+    <script src="js/MapBox.js"></script>
+    <script src="js/InputLink.js"></script>
+</body>
+
+</html>
